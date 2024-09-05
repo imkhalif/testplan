@@ -7,8 +7,7 @@ import {
   StyleSheet,
   Animated,
   ImageBackground,
-  ScrollView,
-  Alert
+  ScrollView
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -27,12 +26,6 @@ const Header = ({value}) => {
       outputRange: [Header_Max_Height, Header_Min_Height],
       extrapolate: 'clamp',
     });
-  
-    const animatedHeaderColor = value.interpolate({
-      inputRange: [0, Scroll_Distance],
-      outputRange: ['#181D31', '#678983'],
-      extrapolate: 'clamp',
-    });
     
     return (
       <Animated.View
@@ -41,7 +34,6 @@ const Header = ({value}) => {
           styles.shadow,
           {
             height: animatedHeaderHeight,
-            backgroundColor: animatedHeaderColor,
           },
         ]}>
             <ImageBackground source={require('../assets/images/header.jpg')} resizeMode="cover" style={{ width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center' }}>
