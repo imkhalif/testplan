@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchDataSuccess, fetchDataFailure } from './actions';
+import { fetchDataSuccess, fetchDataFailure, fetchData } from './actions';
 
 const dataSlice = createSlice({
   name: 'data',
@@ -34,7 +34,7 @@ const dataSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-      .addCase('FETCH_DATA', (state) => {
+      .addCase(fetchData, (state) => {
         state.loading = true;
         state.error = null;
       });
